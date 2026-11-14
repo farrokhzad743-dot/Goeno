@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Goeno</string>
+    <string name="connect">Connect / اتصال</string>
+    <string name="disconnect">Disconnect / قطع اتصال</string>
+    <string name="status_disconnected">Disconnected / قطع است</string>
+    <string name="status_connecting">Finding best path... / در حال یافتن سریع‌ترین مسیر...</string>
+    <string name="status_connected">Connected / متصل شد: %s</string>
+</resources>

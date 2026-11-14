@@ -39,20 +39,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Minimalist and clean bilingual UI
         val layout = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER
             setPadding(48, 48, 48, 48)
-            setBackgroundColor(android.graphics.Color.parseColor("#0F172A")) // Dark modern navy
+            setBackgroundColor(android.graphics.Color.parseColor("#0F172A"))
         }
 
         val titleText = TextView(this).apply {
-            text = "Goeno VPN
-فیلترشکن هوشمند گوئنو"
+            text = "Goeno VPN\nفیلترشکن هوشمند گوئنو"
             textSize = 24f
             gravity = Gravity.CENTER
-            setTextColor(android.graphics.Color.parseColor("#38BDF8")) // Cyan accent
+            setTextColor(android.graphics.Color.parseColor("#38BDF8"))
             setPadding(0, 0, 0, 64)
         }
 

@@ -19,17 +19,21 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Download Gradle Wrapper files
+    - name: Make Gradle wrapper executable
       run: |
-        gradle wrapper --gradle-version 8.4
-        chmod +x gradlew
+        if [ -f "gradlew" ]; then
+          chmod +x gradlew
+        else
+          gradle wrapper --gradle-version 8.4
+          chmod +x gradlew
+        fi
 
     - name: Download Xray Android Core (libv2ray.aar)
       run: |
         mkdir -p app/libs
         curl -L -o app/libs/libv2ray.aar https://github.com/2dust/AndroidLibXrayLite/releases/latest/download/libv2ray.aar
 
-    - name: Build Debug APK with Gradle Wrapper
+    - name: Build Debug APK with Gradle
       run: ./gradlew assembleDebug
 
     - name: Upload APK Artifact

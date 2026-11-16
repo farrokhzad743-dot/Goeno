@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                 if (intent != null) {
                     vpnPermissionLauncher.launch(intent)
                 } else {
-                    connectToBestServer()
+                    connectTest()
                 }
             } else {
                 startService(Intent(this, GoenoVpnService::class.java).apply { action = "STOP" })
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun connectToBestServer() {
+    private fun connectTest() {
         statusText.text = getString(R.string.status_connecting)
         lifecycleScope.launch {
             val bestNode = SmartRouter.pickBestNode(fallbackNodes) ?: fallbackNodes.first()
@@ -104,5 +104,9 @@ class MainActivity : AppCompatActivity() {
             statusText.text = getString(R.string.status_connected, bestNode.name)
             connectBtn.text = getString(R.string.disconnect)
         }
+    }
+
+    private fun connectToBestServer() {
+        connectTest()
     }
 }
